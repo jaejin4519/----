@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>·Î±×ÀÎ</title>
+  <title>ë¡œê·¸ì¸</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -44,32 +44,32 @@
   </style>
 </head>
 <body>
-  <h1>·Î±×ÀÎ</h1>
+  <h1>ë¡œê·¸ì¸</h1>
   <form id="login-form">
     <div class="form-group">
-      <label for="username">¾ÆÀÌµğ:</label>
+      <label for="username">ì•„ì´ë””:</label>
       <input type="text" id="username" name="username" required>
     </div>
     <div class="form-group">
-      <label for="password">ºñ¹Ğ¹øÈ£:</label>
+      <label for="password">ë¹„ë°€ë²ˆí˜¸:</label>
       <input type="password" id="password" name="password" required>
     </div>
-    <button type="submit">·Î±×ÀÎ</button>
+    <button type="submit">ë¡œê·¸ì¸</button>
   </form>
 
   <script>
     document.getElementById("login-form").addEventListener("submit", function(event) {
       event.preventDefault();
-      // ¾ÆÀÌµğ¿Í ºñ¹Ğ¹øÈ£ °¡Á®¿À±â
+      
       var username = document.getElementById("username").value;
       var password = document.getElementById("password").value;
       
-      // ·Î±×ÀÎ Ã³¸®
-      if (username === "»ç¿ëÀÚ¸í" && password === "ºñ¹Ğ¹øÈ£") {
-        alert("·Î±×ÀÎ ¼º°ø!");
-        // ¿©±â¼­ ·Î±×ÀÎ ¼º°ø ÈÄÀÇ µ¿ÀÛÀ» Ã³¸®ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+      // ë¡œê·¸ì¸ ì²˜ë¦¬
+      if (username === "ì‚¬ìš©ìëª…" && password === "ë¹„ë°€ë²ˆí˜¸") {
+        alert("ë¡œê·¸ì¸ ì„±ê³µ!");
+        
       } else {
-        alert("¾ÆÀÌµğ ¶Ç´Â ºñ¹Ğ¹øÈ£°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.");
+        alert("ì•„ì´ë”” ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤.");
       }
     });
   </script>
