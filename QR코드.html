@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>페이지 인쇄 예시</title>
+</head>
+<body>
+  <h1>역전승환이맥주 QR코드</h1>
+  <div id="qrCodeContainer"></div>
+
+  <button id="printButton">페이지 인쇄</button>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    var qrCodeContainer = document.getElementById('qrCodeContainer');
+    var printButton = document.getElementById('printButton');
+
+    function getQRCodeImage() {
+      axios.get('/api/qrcode')
+        .then(function(response) {
+          var qrCodeImage = document.createElement('img');
+          qrCodeImage.src = response.data.imageUrl;
+          qrCodeContainer.appendChild(qrCodeImage);
+        })
+        .catch(function(error) {
+          console.error('QR 코드 이미지를 가져오는 중 오류가 발생했습니다:', error);
+        });
+    }
+
+    getQRCodeImage();
+    
+    printButton.addEventListener('click', function() {
+      window.print();
+    });
+    
+    
+  </script>
+</body>
+</html>
