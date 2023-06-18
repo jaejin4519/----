@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>¿ªÀü½ÂÈ¯ÀÌ ¸ÆÁÖ È¸¿ø°¡ÀÔ</title>
+  <title>ì—­ì „ìŠ¹í™˜ì´ ë§¥ì£¼ íšŒì›ê°€ì…</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -50,48 +50,53 @@
   
 </head>
 <body>
-  <h1>È¸¿ø°¡ÀÔ</h1>
+  <h1>íšŒì›ê°€ì…</h1>
   <form id="signup-form">
     <div class="form-group">
-      <label for="name">ÀÌ¸§:</label>
+      <label for="name">ì´ë¦„:</label>
       <input type="text" id="name" name="name" required>
     </div>
     <div class="form-group">
-      <label for="username">¾ÆÀÌµğ:</label>
+      <label for="username">ì•„ì´ë””:</label>
       <input type="text" id="username" name="username" required>
     </div>
     <div class="form-group">
-      <label for="password">ºñ¹Ğ¹øÈ£:</label>
+      <label for="password">ë¹„ë°€ë²ˆí˜¸:</label>
       <input type="password" id="password" name="password" required>
     </div>
     <div class="form-group">
-      <label for="email">ÀÌ¸ŞÀÏ:</label>
+      <label for="email">ì´ë©”ì¼:</label>
       <input type="email" id="email" name="email" required>
     </div>
     <div class="form-group">
-      <label for="phone">ÈŞ´ëÆù ¹øÈ£:</label>
+      <label for="phone">íœ´ëŒ€í° ë²ˆí˜¸:</label>
       <input type="text" id="phone" name="phone" required>
     </div>
     <div class="form-group">
-      <label>¼ºº°:</label>
-      <label><input type="checkbox" name="gender" value="male"> ³²¼º</label>
-      <label><input type="checkbox" name="gender" value="female"> ¿©¼º</label>
+      <label>ì„±ë³„:</label>
+      <label><input type="checkbox" name="gender" value="male"> ë‚¨ì„±</label>
+      <label><input type="checkbox" name="gender" value="female"> ì—¬ì„±</label>
     </div>
-    <button type="submit">°¡ÀÔÇÏ±â</button>
+    <button type="submit">ê°€ì…í•˜ê¸°</button>
   </form>
 
   <script>
     document.getElementById("signup-form").addEventListener("submit", function(event) {
       event.preventDefault();
-      
+
       var formData = new FormData(this);
-      
-      
-      for (var pair of formData.entries()) {
-        console.log(pair[0] + ": " + pair[1]);
-      }
-      
-      /*°¡ÀÔ¹öÆ° ´©¸£¸é µ¥ÀÌÅÍ Àü¼Û ¾ÆÁ÷ ±¸Çö X*/
+
+      axios.post('/api/owner', formData)
+        .then(function(response) {
+          console.log(response.data);
+          alert("íšŒì›ê°€ì…ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤!")
+          window.location.href = "ë©”ì¸í™”ë©´.html";
+        })
+        .catch(function(error) {
+          console.log(error);
+          
+        });
+        
     });
   </script>
 </body>
